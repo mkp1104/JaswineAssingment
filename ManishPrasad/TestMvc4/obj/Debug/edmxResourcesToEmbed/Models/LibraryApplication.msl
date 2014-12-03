@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibraryApplicationModelStoreContainer" CdmEntityContainer="LibraryApplicationEntities">
+    <EntitySetMapping Name="SubTopicDetails">
+      <EntityTypeMapping TypeName="LibraryApplicationModel.SubTopicDetail">
+        <MappingFragment StoreEntitySet="SubTopicDetails">
+          <ScalarProperty Name="stdID" ColumnName="stdID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FACULTY" ColumnName="FACULTY" />
+          <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+          <ScalarProperty Name="subtopicId" ColumnName="subtopicId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubTopics">
+      <EntityTypeMapping TypeName="LibraryApplicationModel.SubTopic">
+        <MappingFragment StoreEntitySet="SubTopics">
+          <ScalarProperty Name="subtopicId" ColumnName="subtopicId" />
+          <ScalarProperty Name="subtopics" ColumnName="subtopics" />
+          <ScalarProperty Name="indexId" ColumnName="indexId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topics">
+      <EntityTypeMapping TypeName="LibraryApplicationModel.Topic">
+        <MappingFragment StoreEntitySet="Topics">
+          <ScalarProperty Name="topicId" ColumnName="topicId" />
+          <ScalarProperty Name="topics" ColumnName="topics" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

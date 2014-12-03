@@ -1,0 +1,43 @@
+﻿@model TestMvc4.Models.SubTopicDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SubTopicDetail</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FACULTY)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FACULTY)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DURATION)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DURATION)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SubTopic.subtopics)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubTopic.subtopics)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.stdID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

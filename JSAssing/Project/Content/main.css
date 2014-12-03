@@ -1,0 +1,35 @@
+#header {
+    padding: 12px;
+    background: #ccc;
+    height: 52px;
+}
+
+#header p { float: left }
+
+#header ul {
+    float: right; margin-right: 32px; 
+}
+
+#header ul li {
+    float: left;
+    margin-right: 0px;
+    
+}
+
+#main { clear: both }
+
+#main #left-sidebar { float: left; margin-right: 22px; }
+#main #left-sidebar li { list-style-type: none }
+#main #left-sidebar form {margin-left: 100px; }
+
+#main #content { margin-top: 20px; float: left }
+
+#main #right-sidebar { float: right; margin-right: 300px; }
+
+#footer { clear: both; text-align: center }
+
+.sections a { color: orange }
+
+.important { color: red }
+
+.newLine{clear: both;}

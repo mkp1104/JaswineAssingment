@@ -1,0 +1,36 @@
+﻿@model TestMvc4.Models.Topic
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Topic</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TopicName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TopicName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Duration)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Duration)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.faculty)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.faculty)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TopicId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

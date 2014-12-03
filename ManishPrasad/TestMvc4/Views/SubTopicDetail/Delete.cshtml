@@ -1,0 +1,46 @@
+﻿@model TestMvc4.Models.SubTopicDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>SubTopicDetail</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FACULTY)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FACULTY)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DURATION)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DURATION)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SubTopic.subtopics)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SubTopic.subtopics)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

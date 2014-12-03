@@ -1,0 +1,22 @@
+﻿@model TestMvc4.Models.Topic
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Topic</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.topics)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.topics)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.topicId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

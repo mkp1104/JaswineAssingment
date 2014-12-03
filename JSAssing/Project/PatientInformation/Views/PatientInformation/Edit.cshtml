@@ -1,0 +1,53 @@
+﻿@model PatientInformation.Models.Patient
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Patient</legend>
+
+        @Html.HiddenFor(model => model.patientId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.patientName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.patientName)
+            @Html.ValidationMessageFor(model => model.patientName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.patientAge)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.patientAge)
+            @Html.ValidationMessageFor(model => model.patientAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.note)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.note)
+            @Html.ValidationMessageFor(model => model.note)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

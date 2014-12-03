@@ -1,0 +1,29 @@
+﻿@model TestMvc4.Models.SubTopic
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SubTopic</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.subtopics)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.subtopics)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Topic.topics)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Topic.topics)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.subtopicId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

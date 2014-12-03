@@ -1,0 +1,67 @@
+﻿@{
+  ViewBag.Title = "eMids Technology";
+}
+@section featured {
+  <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                
+emids is a healthcare-focused technology services and solutions organization. emids was founded in 1999, and we are headquartered in Nashville, TN, U.S.A. We are an organization that is committed to make healthcare accessible and affordable through our leadership in healthcare domain and proven technology competence.
+
+We are committed to be the partner of choice in core healthcare technology and operations and to provide superior value to our customers through our thought leadership in healthcare and technology expertise
+            </p>
+        </div>
+    </section>
+}
+<h2>
+  Training Modules</h2>
+<div id="header">
+  <script src="Scripts/jquery.js"></script>
+  <script type="text/javascript" src="Scripts/stores.js"></script>
+  <script type="text/javascript" src="Scripts/controls.js"></script>
+  <script type="text/javascript" src="Scripts/app.js"></script>
+  <script>
+    $(document).ready(function () {
+      var application = new App();
+
+      application.loadTopics();
+    });
+  </script>
+  <link rel="stylesheet" type="text/css" href="Content/main.css">
+</div>
+<div id="main">
+  <div id="left-sidebar">
+  </div>
+  <div id="Middle">
+  </div>
+  <div id="right-sidebar">
+  </div>
+</div>
+<div class="newLine">
+  <form id="formoid" title="" method="post">
+  <table>
+    <tr>
+      <td><label class="title">TopicName</label></td>
+      <td><input type="text" id="TopicName" name="TopicName"></td>
+    </tr>
+    <tr>
+      <td><label class="title">Duration</label></td>
+      <td><input type="text" id="Duration" name="Duration"></td>
+    </tr>
+    <tr>
+      <td><label class="title">Faculty</label></td>
+      <td><input type="text" id="Faculty" name="Faculty"></td>
+    </tr>
+    <tr>
+      <input type="submit" id="submitButton" name="submitButton" value="Submit" />
+    </tr>
+  </table>
+  </form>
+</div>
+<div id="content">
+</div>
+</div>

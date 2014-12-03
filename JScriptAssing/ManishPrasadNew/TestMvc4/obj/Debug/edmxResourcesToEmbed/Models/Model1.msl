@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EF_Hospital_CFModelStoreContainer" CdmEntityContainer="EF_Hospital_CFEntities1">
+    <EntitySetMapping Name="HealthCareWorkers">
+      <EntityTypeMapping TypeName="EF_Hospital_CFModel.HealthCareWorker">
+        <MappingFragment StoreEntitySet="HealthCareWorkers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+          <ScalarProperty Name="TotalPatientsServed" ColumnName="TotalPatientsServed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nurses">
+      <EntityTypeMapping TypeName="EF_Hospital_CFModel.Nurse">
+        <MappingFragment StoreEntitySet="Nurses">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+          <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="TotalPatientsServed" ColumnName="TotalPatientsServed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="EF_Hospital_CFModel.Patient">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="LastVisitDate" ColumnName="LastVisitDate" />
+          <ScalarProperty Name="InsuranceName" ColumnName="InsuranceName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Physicians">
+      <EntityTypeMapping TypeName="EF_Hospital_CFModel.Physician">
+        <MappingFragment StoreEntitySet="Physicians">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+          <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="TotalPatientsServed" ColumnName="TotalPatientsServed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

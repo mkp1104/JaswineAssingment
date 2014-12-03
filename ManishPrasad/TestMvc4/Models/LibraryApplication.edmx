@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LibraryApplicationModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="LibraryApplicationModelStoreContainer">
+          <EntitySet Name="SubTopicDetails" EntityType="LibraryApplicationModel.Store.SubTopicDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubTopics" EntityType="LibraryApplicationModel.Store.SubTopics" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Topics" EntityType="LibraryApplicationModel.Store.Topics" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__SubTopicD__subto__1273C1CD" Association="LibraryApplicationModel.Store.FK__SubTopicD__subto__1273C1CD">
+            <End Role="SubTopics" EntitySet="SubTopics" />
+            <End Role="SubTopicDetails" EntitySet="SubTopicDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SubTopics__index__0519C6AF" Association="LibraryApplicationModel.Store.FK__SubTopics__index__0519C6AF">
+            <End Role="Topics" EntitySet="Topics" />
+            <End Role="SubTopics" EntitySet="SubTopics" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SubTopicDetails">
+          <Key>
+            <PropertyRef Name="stdID" />
+          </Key>
+          <Property Name="stdID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="FACULTY" Type="varchar" MaxLength="50" />
+          <Property Name="DURATION" Type="int" />
+          <Property Name="subtopicId" Type="int" />
+        </EntityType>
+        <EntityType Name="SubTopics">
+          <Key>
+            <PropertyRef Name="subtopicId" />
+          </Key>
+          <Property Name="subtopicId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="subtopics" Type="varchar" MaxLength="10" />
+          <Property Name="indexId" Type="int" />
+        </EntityType>
+        <EntityType Name="Topics">
+          <Key>
+            <PropertyRef Name="topicId" />
+          </Key>
+          <Property Name="topicId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="topics" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__SubTopicD__subto__1273C1CD">
+          <End Role="SubTopics" Type="LibraryApplicationModel.Store.SubTopics" Multiplicity="0..1" />
+          <End Role="SubTopicDetails" Type="LibraryApplicationModel.Store.SubTopicDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubTopics">
+              <PropertyRef Name="subtopicId" />
+            </Principal>
+            <Dependent Role="SubTopicDetails">
+              <PropertyRef Name="subtopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SubTopics__index__0519C6AF">
+          <End Role="Topics" Type="LibraryApplicationModel.Store.Topics" Multiplicity="0..1" />
+          <End Role="SubTopics" Type="LibraryApplicationModel.Store.SubTopics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topics">
+              <PropertyRef Name="topicId" />
+            </Principal>
+            <Dependent Role="SubTopics">
+              <PropertyRef Name="indexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibraryApplicationModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="LibraryApplicationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SubTopicDetails" EntityType="LibraryApplicationModel.SubTopicDetail" />
+          <EntitySet Name="SubTopics" EntityType="LibraryApplicationModel.SubTopic" />
+          <EntitySet Name="Topics" EntityType="LibraryApplicationModel.Topic" />
+          <AssociationSet Name="FK__SubTopicD__subto__1273C1CD" Association="LibraryApplicationModel.FK__SubTopicD__subto__1273C1CD">
+            <End Role="SubTopics" EntitySet="SubTopics" />
+            <End Role="SubTopicDetails" EntitySet="SubTopicDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SubTopics__index__0519C6AF" Association="LibraryApplicationModel.FK__SubTopics__index__0519C6AF">
+            <End Role="Topics" EntitySet="Topics" />
+            <End Role="SubTopics" EntitySet="SubTopics" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SubTopicDetail">
+          <Key>
+            <PropertyRef Name="stdID" />
+          </Key>
+          <Property Name="stdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FACULTY" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DURATION" Type="Int32" />
+          <Property Name="subtopicId" Type="Int32" />
+          <NavigationProperty Name="SubTopic" Relationship="LibraryApplicationModel.FK__SubTopicD__subto__1273C1CD" FromRole="SubTopicDetails" ToRole="SubTopics" />
+        </EntityType>
+        <EntityType Name="SubTopic">
+          <Key>
+            <PropertyRef Name="subtopicId" />
+          </Key>
+          <Property Name="subtopicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subtopics" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="indexId" Type="Int32" />
+          <NavigationProperty Name="SubTopicDetails" Relationship="LibraryApplicationModel.FK__SubTopicD__subto__1273C1CD" FromRole="SubTopics" ToRole="SubTopicDetails" />
+          <NavigationProperty Name="Topic" Relationship="LibraryApplicationModel.FK__SubTopics__index__0519C6AF" FromRole="SubTopics" ToRole="Topics" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="topicId" />
+          </Key>
+          <Property Name="topicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="topics" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SubTopics" Relationship="LibraryApplicationModel.FK__SubTopics__index__0519C6AF" FromRole="Topics" ToRole="SubTopics" />
+        </EntityType>
+        <Association Name="FK__SubTopicD__subto__1273C1CD">
+          <End Role="SubTopics" Type="LibraryApplicationModel.SubTopic" Multiplicity="0..1" />
+          <End Role="SubTopicDetails" Type="LibraryApplicationModel.SubTopicDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubTopics">
+              <PropertyRef Name="subtopicId" />
+            </Principal>
+            <Dependent Role="SubTopicDetails">
+              <PropertyRef Name="subtopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SubTopics__index__0519C6AF">
+          <End Role="Topics" Type="LibraryApplicationModel.Topic" Multiplicity="0..1" />
+          <End Role="SubTopics" Type="LibraryApplicationModel.SubTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Topics">
+              <PropertyRef Name="topicId" />
+            </Principal>
+            <Dependent Role="SubTopics">
+              <PropertyRef Name="indexId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LibraryApplicationModelStoreContainer" CdmEntityContainer="LibraryApplicationEntities">
+          <EntitySetMapping Name="SubTopicDetails">
+            <EntityTypeMapping TypeName="LibraryApplicationModel.SubTopicDetail">
+              <MappingFragment StoreEntitySet="SubTopicDetails">
+                <ScalarProperty Name="stdID" ColumnName="stdID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FACULTY" ColumnName="FACULTY" />
+                <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+                <ScalarProperty Name="subtopicId" ColumnName="subtopicId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubTopics">
+            <EntityTypeMapping TypeName="LibraryApplicationModel.SubTopic">
+              <MappingFragment StoreEntitySet="SubTopics">
+                <ScalarProperty Name="subtopicId" ColumnName="subtopicId" />
+                <ScalarProperty Name="subtopics" ColumnName="subtopics" />
+                <ScalarProperty Name="indexId" ColumnName="indexId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Topics">
+            <EntityTypeMapping TypeName="LibraryApplicationModel.Topic">
+              <MappingFragment StoreEntitySet="Topics">
+                <ScalarProperty Name="topicId" ColumnName="topicId" />
+                <ScalarProperty Name="topics" ColumnName="topics" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="LibraryApplication">
+        <EntityTypeShape EntityType="LibraryApplicationModel.SubTopicDetail" Width="1.5" PointX="5.25" PointY="0.875" Height="2.1725878906250005" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryApplicationModel.SubTopic" Width="1.5" PointX="3" PointY="1" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryApplicationModel.Topic" Width="1.5" PointX="0.75" PointY="1.25" Height="1.5956835937499996" IsExpanded="true" />
+        <AssociationConnector Association="LibraryApplicationModel.FK__SubTopicD__subto__1273C1CD" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="1.9901432291666668" />
+          <ConnectorPoint PointX="5.25" PointY="1.9901432291666668" />
+        </AssociationConnector>
+        <AssociationConnector Association="LibraryApplicationModel.FK__SubTopics__index__0519C6AF" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.047841796875" />
+          <ConnectorPoint PointX="3" PointY="2.047841796875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

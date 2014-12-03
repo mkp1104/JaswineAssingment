@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TestMvc4.Models.Topic>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.topics)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.topics)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.topicId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.topicId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.topicId })
+        </td>
+    </tr>
+}
+
+</table>

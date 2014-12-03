@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryApplicationModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="LibraryApplicationEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SubTopicDetails" EntityType="LibraryApplicationModel.SubTopicDetail" />
+    <EntitySet Name="SubTopics" EntityType="LibraryApplicationModel.SubTopic" />
+    <EntitySet Name="Topics" EntityType="LibraryApplicationModel.Topic" />
+    <AssociationSet Name="FK__SubTopicD__subto__1273C1CD" Association="LibraryApplicationModel.FK__SubTopicD__subto__1273C1CD">
+      <End Role="SubTopics" EntitySet="SubTopics" />
+      <End Role="SubTopicDetails" EntitySet="SubTopicDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SubTopics__index__0519C6AF" Association="LibraryApplicationModel.FK__SubTopics__index__0519C6AF">
+      <End Role="Topics" EntitySet="Topics" />
+      <End Role="SubTopics" EntitySet="SubTopics" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SubTopicDetail">
+    <Key>
+      <PropertyRef Name="stdID" />
+    </Key>
+    <Property Name="stdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FACULTY" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DURATION" Type="Int32" />
+    <Property Name="subtopicId" Type="Int32" />
+    <NavigationProperty Name="SubTopic" Relationship="LibraryApplicationModel.FK__SubTopicD__subto__1273C1CD" FromRole="SubTopicDetails" ToRole="SubTopics" />
+  </EntityType>
+  <EntityType Name="SubTopic">
+    <Key>
+      <PropertyRef Name="subtopicId" />
+    </Key>
+    <Property Name="subtopicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="subtopics" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="indexId" Type="Int32" />
+    <NavigationProperty Name="SubTopicDetails" Relationship="LibraryApplicationModel.FK__SubTopicD__subto__1273C1CD" FromRole="SubTopics" ToRole="SubTopicDetails" />
+    <NavigationProperty Name="Topic" Relationship="LibraryApplicationModel.FK__SubTopics__index__0519C6AF" FromRole="SubTopics" ToRole="Topics" />
+  </EntityType>
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="topicId" />
+    </Key>
+    <Property Name="topicId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="topics" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="SubTopics" Relationship="LibraryApplicationModel.FK__SubTopics__index__0519C6AF" FromRole="Topics" ToRole="SubTopics" />
+  </EntityType>
+  <Association Name="FK__SubTopicD__subto__1273C1CD">
+    <End Role="SubTopics" Type="LibraryApplicationModel.SubTopic" Multiplicity="0..1" />
+    <End Role="SubTopicDetails" Type="LibraryApplicationModel.SubTopicDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubTopics">
+        <PropertyRef Name="subtopicId" />
+      </Principal>
+      <Dependent Role="SubTopicDetails">
+        <PropertyRef Name="subtopicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SubTopics__index__0519C6AF">
+    <End Role="Topics" Type="LibraryApplicationModel.Topic" Multiplicity="0..1" />
+    <End Role="SubTopics" Type="LibraryApplicationModel.SubTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topics">
+        <PropertyRef Name="topicId" />
+      </Principal>
+      <Dependent Role="SubTopics">
+        <PropertyRef Name="indexId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

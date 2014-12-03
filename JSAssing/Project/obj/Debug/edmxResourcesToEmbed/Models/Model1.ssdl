@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EF_Hospital_CFModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EF_Hospital_CFModelStoreContainer">
+    <EntitySet Name="HealthCareWorkers" EntityType="EF_Hospital_CFModel.Store.HealthCareWorkers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Nurses" EntityType="EF_Hospital_CFModel.Store.Nurses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Patients" EntityType="EF_Hospital_CFModel.Store.Patients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Physicians" EntityType="EF_Hospital_CFModel.Store.Physicians" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="HealthCareWorkers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UniqueID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="TotalPatientsServed" Type="int" />
+  </EntityType>
+  <EntityType Name="Nurses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UniqueID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Speciality" Type="varchar" MaxLength="50" />
+    <Property Name="Qualification" Type="varchar" MaxLength="50" />
+    <Property Name="TotalPatientsServed" Type="int" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UniqueID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="Height" Type="decimal" />
+    <Property Name="Weight" Type="decimal" />
+    <Property Name="LastVisitDate" Type="date" />
+    <Property Name="InsuranceName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Physicians">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="UniqueID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Speciality" Type="varchar" MaxLength="50" />
+    <Property Name="Qualification" Type="varchar" MaxLength="50" />
+    <Property Name="TotalPatientsServed" Type="int" />
+  </EntityType>
+</Schema>

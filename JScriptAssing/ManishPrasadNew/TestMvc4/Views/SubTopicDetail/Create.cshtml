@@ -1,0 +1,59 @@
+﻿@model TestMvc4.Models.SubTopicDetail
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>SubTopicDetail</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FACULTY)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FACULTY)
+            @Html.ValidationMessageFor(model => model.FACULTY)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DURATION)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DURATION)
+            @Html.ValidationMessageFor(model => model.DURATION)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.subtopicId, "SubTopic")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("subtopicId", String.Empty)
+            @Html.ValidationMessageFor(model => model.subtopicId)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

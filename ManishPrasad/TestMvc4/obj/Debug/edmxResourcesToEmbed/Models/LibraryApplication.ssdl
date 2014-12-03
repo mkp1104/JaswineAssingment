@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryApplicationModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="LibraryApplicationModelStoreContainer">
+    <EntitySet Name="SubTopicDetails" EntityType="LibraryApplicationModel.Store.SubTopicDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubTopics" EntityType="LibraryApplicationModel.Store.SubTopics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Topics" EntityType="LibraryApplicationModel.Store.Topics" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__SubTopicD__subto__1273C1CD" Association="LibraryApplicationModel.Store.FK__SubTopicD__subto__1273C1CD">
+      <End Role="SubTopics" EntitySet="SubTopics" />
+      <End Role="SubTopicDetails" EntitySet="SubTopicDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SubTopics__index__0519C6AF" Association="LibraryApplicationModel.Store.FK__SubTopics__index__0519C6AF">
+      <End Role="Topics" EntitySet="Topics" />
+      <End Role="SubTopics" EntitySet="SubTopics" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SubTopicDetails">
+    <Key>
+      <PropertyRef Name="stdID" />
+    </Key>
+    <Property Name="stdID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="FACULTY" Type="varchar" MaxLength="50" />
+    <Property Name="DURATION" Type="int" />
+    <Property Name="subtopicId" Type="int" />
+  </EntityType>
+  <EntityType Name="SubTopics">
+    <Key>
+      <PropertyRef Name="subtopicId" />
+    </Key>
+    <Property Name="subtopicId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="subtopics" Type="varchar" MaxLength="10" />
+    <Property Name="indexId" Type="int" />
+  </EntityType>
+  <EntityType Name="Topics">
+    <Key>
+      <PropertyRef Name="topicId" />
+    </Key>
+    <Property Name="topicId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="topics" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__SubTopicD__subto__1273C1CD">
+    <End Role="SubTopics" Type="LibraryApplicationModel.Store.SubTopics" Multiplicity="0..1" />
+    <End Role="SubTopicDetails" Type="LibraryApplicationModel.Store.SubTopicDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubTopics">
+        <PropertyRef Name="subtopicId" />
+      </Principal>
+      <Dependent Role="SubTopicDetails">
+        <PropertyRef Name="subtopicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SubTopics__index__0519C6AF">
+    <End Role="Topics" Type="LibraryApplicationModel.Store.Topics" Multiplicity="0..1" />
+    <End Role="SubTopics" Type="LibraryApplicationModel.Store.SubTopics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topics">
+        <PropertyRef Name="topicId" />
+      </Principal>
+      <Dependent Role="SubTopics">
+        <PropertyRef Name="indexId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

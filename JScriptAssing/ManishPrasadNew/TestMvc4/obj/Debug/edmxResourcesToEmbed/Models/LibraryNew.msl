@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibraryApplicationNewModelStoreContainer" CdmEntityContainer="LibraryApplicationNewEntities1">
+    <EntitySetMapping Name="Topics">
+      <EntityTypeMapping TypeName="LibraryApplicationNewModel.Topic">
+        <MappingFragment StoreEntitySet="Topics">
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+          <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

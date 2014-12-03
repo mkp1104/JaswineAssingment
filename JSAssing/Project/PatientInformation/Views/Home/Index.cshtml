@@ -1,0 +1,260 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+              emids is a healthcare-focused technology services and solutions organization. emids was founded in 1999, and we are headquartered in Nashville, TN, U.S.A. We are an organization that is committed to make healthcare accessible and affordable through our leadership in healthcare domain and proven technology competence.
+
+              We are committed to be the partner of choice in core healthcare technology and operations and to provide superior value to our customers through our thought leadership in healthcare and technology expertise
+             </p>
+        </div>
+    </section>
+}
+<h3>Patient Information System:</h3>
+<div id="header">
+  <script src="Scripts/jquery.js"></script>
+  <script type="text/javascript" src="Scripts/stores.js"></script>
+  <script type="text/javascript" src="Scripts/controls.js"></script>
+  <script type="text/javascript" src="Scripts/app.js"></script>
+  <script>
+      $(document).ready(function () {
+          var application = new App();
+
+          application.loadPatients();
+      });
+  </script>
+  <link rel="stylesheet" type="text/css" href="Content/main.css">
+</div>
+<div id="main">
+  <div id="left-sidebar">
+  </div>
+  <div id="Middle">
+  </div>
+  <div id="right-sidebar">
+  </div>
+</div>
+<div class="newLine"><h3>Create New Patient :</h3> 
+  <form id="formoid" title="" method="post">
+  <table>
+    <tr>
+      <td><label class="title">PatientName</label></td>
+      <td><input type="text" id="PatientName" name="PatientName"></td>
+    </tr>
+    <tr>
+      <td><label class="title">PatientAge</label></td>
+      <td><input type="text" id="PatientAge" name="PatientAge"></td>
+    </tr>
+    <tr>
+      <td><label class="title">Description</label></td>
+      <td><input type="text" id="Description" name="Description"></td>
+    </tr>
+    <tr>
+     @* <input type="submit" id="submitButton" name="submitButton" value="Submit" />*@
+    </tr>
+  </table>
+   <input type="submit" id="submitButton" name="submitButton" value="Submit" />
+  </form>
+</div>
+<div id="content">
+</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Dialog - Modal form</title>
+   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"> 
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+   <style>
+     
+      #date
+       {
+       
+        width: 110px;   
+       } 
+       
+       #title
+       {
+       
+        margin-bottom: 10px;
+        
+           
+       }
+       
+      #hour,#minute
+       {
+        width: 45px;   
+       }
+
+       #title 
+       {
+        width: 100px;
+        clear: both;
+       }
+       
+       #duration
+       {
+        
+         width: 100px;   
+       }
+        
+       #time
+       {
+         margin-left: 20px;
+       }
+       
+       
+        #first-row
+       {
+         margin-bottom: 20px;
+           
+       }  
+       
+       #second-row
+       {
+         margin-bottom: 20px;  
+       } 
+       
+       #third-row
+       {
+         margin-bottom: 20px;     
+       }
+       
+       #fourth-row
+       {
+         margin-bottom: 20px;    
+       }
+       
+       #patient
+       {
+           width: 100px;
+       }      
+           
+       #save
+       {
+        margin-left: 80px;   
+       }
+      
+     
+       
+   </style>
+  
+          <script>
+            $(function () {
+
+              $("#dialog-form").dialog({
+                autoOpen: false,
+                height: 500,
+                width: 500,
+                modal: true
+
+
+              });
+
+              $("#create-user")
+                  .button()
+                  .click(function () {
+                    $("#dialog-form").dialog("open");
+                  });
+
+              $("#date").click(function () {
+                $(this).datepicker();
+              });
+
+
+
+            });
+          </script>
+ </head>
+
+
+@*<body>
+ 
+<div id="dialog-form">
+  
+ 
+  <form>
+  <fieldset id="scheduler">
+      <legend >Appointment Scheduler</legend>
+       
+      <div id="first-row">
+           <label for="name">Date</label> 
+           <input type="text" name="date" id="date" >
+
+            <input type="radio" >
+            Time:<input type="text" id="hour">
+                :<input type="text" id="minute">
+            <select>
+            <option>AM</option>
+            <option>PM</option>
+            </select> 
+            </div> 
+
+
+
+       <div id="second-row">
+      <label for="name">Title</label>   
+      <input type="text" name="title" id="title" >
+      <label for="name" id="time">  Duration:</label>   
+      <input type="text" id="duration">
+      </div>
+
+
+      <div id="third-row"> 
+      Facility:<select id="facility">
+      <option>facility1</option>
+      <option>facility2</option>
+      <option>facility3</option>
+      <option>facility4</option>
+      <option>facility5</option>
+      </select>
+
+      Patient:<input type="text" name="patient" id="patient">
+      </div>
+
+
+      <div id="fourth-row">
+      Provider:<select id="provider" multiple="multiple">
+      <option>Carter,John</option>
+      <option>Costa Alfred</option>
+      <option>Edison,John</option>
+      <option>Ganiel,Son</option>
+      <option>J,Ranichandra</option>
+      </select>
+       </div>
+
+
+
+       <div>
+       Status:<select id="status">
+        <option>E</option>
+       <option>D</option>
+        </select>
+        <button type="button" id="save" >Save</button>
+       <button type="button" id="delete">Delete</button>
+       <button type="button" id="cancel">Cancel</button>    
+       </div>   
+       
+
+        
+      
+      
+  </fieldset>
+  </form>
+</div>
+ 
+ 
+
+<button id="create-user">Create new user</button>
+ *@
+ 
+</body>
+</html>
+
